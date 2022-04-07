@@ -1,4 +1,4 @@
-import { getRandIntValue, generateStack } from '../utils.js';
+import { getRandIntValue, getStack } from '../utils.js';
 
 // -- Description
 export const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -7,12 +7,19 @@ export const description = 'Answer "yes" if given number is prime. Otherwise ans
 const minValue = 0;
 const maxValue = 100;
 
+/**
+ * Check if number is prime.
+ It uses Sieve of Eratosthenes conception.
+ More: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+ * @param {number} value
+ * @return {boolean}
+ */
 const isPrime = (value) => {
   if (value === 0 || value === 1) {
     return false;
   }
 
-  let allValues = generateStack(2, value).reverse();
+  let allValues = getStack(2, value).reverse();
 
   while (allValues.length !== 1) {
     const simpleValue = allValues.pop();
@@ -26,6 +33,10 @@ const isPrime = (value) => {
   return true;
 };
 
+/**
+ * Generate question and right answer.
+ * @return {[string,string]}
+ */
 export const generateRound = () => {
   const value = getRandIntValue(minValue, maxValue);
 

@@ -1,4 +1,4 @@
-import { getRandIntValue, generateStack, getRandomChoice } from '../utils.js';
+import { getRandIntValue, getStack, getRandomChoice } from '../utils.js';
 
 // -- Description
 export const description = 'What number is missing in the progression?';
@@ -11,12 +11,23 @@ const stepMax = 100;
 const lengthMin = 5;
 const lengthMax = 10;
 
+/**
+ * Returns an arithmetic progression.
+ * @param {number} start
+ * @param {number} step
+ * @param {number} length
+ * @return {number[]}
+ */
 const generateProgression = (start, step, length) => {
-  let sequence = generateStack(0, length - 1);
+  let sequence = getStack(0, length - 1);
   sequence = sequence.map((index) => start + index * step);
   return sequence;
 };
 
+/**
+ * Generate question and right answer.
+ * @return {[string,string]}
+ */
 export const generateRound = () => {
   const start = getRandIntValue(firstMin, firstMax);
   const step = getRandIntValue(stepMin, stepMax);

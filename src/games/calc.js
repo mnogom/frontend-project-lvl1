@@ -8,6 +8,13 @@ const minValue = 0;
 const maxValue = 100;
 const operations = '-+*';
 
+/**
+ * Returns result of calculation a mathematical expression.
+ * @param {number} value1
+ * @param {number} value2
+ * @param {string} operation
+ * @returns {number}
+ */
 const calculateResult = (value1, value2, operation) => {
   switch (operation) {
     case '+':
@@ -21,6 +28,10 @@ const calculateResult = (value1, value2, operation) => {
   }
 };
 
+/**
+ * Generate question and right answer.
+ * @return {[string,string]}
+ */
 export const generateRound = () => {
   const value1 = getRandIntValue(minValue, maxValue);
   const value2 = getRandIntValue(minValue, maxValue);
