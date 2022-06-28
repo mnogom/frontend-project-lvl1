@@ -1,7 +1,8 @@
 import { getRandIntValue, getStack, getRandomChoice } from '../utils.js';
+import buildGame from '../engine.js';
 
 // -- Description
-export const description = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 
 // -- Constants
 const firstMin = 0;
@@ -27,7 +28,7 @@ const generateProgression = (start, step, length) => {
  * Generate question and right answer.
  * @return {[string,string]}
  */
-export const generateRound = () => {
+const generateRound = () => {
   const start = getRandIntValue(firstMin, firstMax);
   const step = getRandIntValue(stepMin, stepMax);
   const length = getRandIntValue(lengthMin, lengthMax);
@@ -40,4 +41,11 @@ export const generateRound = () => {
   rightAnswer = String(rightAnswer);
 
   return [question, rightAnswer];
+};
+
+/**
+ * Run game with engine
+ */
+export default () => {
+  buildGame({ description, generateRound });
 };

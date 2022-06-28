@@ -1,7 +1,8 @@
 import { getRandIntValue, getStack } from '../utils.js';
+import buildGame from '../engine.js';
 
 // -- Description
-export const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 // -- Constants
 const minValue = 0;
@@ -37,11 +38,18 @@ const isPrime = (value) => {
  * Generate question and right answer.
  * @return {[string,string]}
  */
-export const generateRound = () => {
+const generateRound = () => {
   const value = getRandIntValue(minValue, maxValue);
 
   const question = String(value);
   const rightAnswer = isPrime(value) ? 'yes' : 'no';
 
   return [question, rightAnswer];
+};
+
+/**
+ * Run game with engine
+ */
+export default () => {
+  buildGame({ description, generateRound });
 };

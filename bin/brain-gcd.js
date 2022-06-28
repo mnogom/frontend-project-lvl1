@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import play from '../src/engine.js';
+import playGame from '../src/games/gcd.js';
 
-import('../src/games/gcd.js').then((game) => play(game));
+playGame();

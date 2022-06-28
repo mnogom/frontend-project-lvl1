@@ -1,7 +1,8 @@
 import { getRandIntValue } from '../utils.js';
+import buildGame from '../engine.js';
 
 // -- Description
-export const description = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
 // -- Constants
 const minValue = 0;
@@ -28,7 +29,7 @@ const getGCD = (value1, value2) => {
  * Generate question and right answer.
  * @return {[string,string]}
  */
-export const generateRound = () => {
+const generateRound = () => {
   const value1 = getRandIntValue(minValue, maxValue);
   const value2 = getRandIntValue(minValue, maxValue);
 
@@ -36,4 +37,11 @@ export const generateRound = () => {
   const rightAnswer = String(getGCD(value1, value2));
 
   return [question, rightAnswer];
+};
+
+/**
+ * Run game with engine
+ */
+export default () => {
+  buildGame({ description, generateRound });
 };

@@ -1,7 +1,8 @@
 import { getRandIntValue, getRandomChoice } from '../utils.js';
+import buildGame from '../engine.js';
 
 // -- Description
-export const description = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 // -- Constants
 const minValue = 0;
@@ -33,7 +34,7 @@ const calculate = (value1, value2, operation) => {
  * Generate question and right answer.
  * @return {[string,string]}
  */
-export const generateRound = () => {
+const generateRound = () => {
   const value1 = getRandIntValue(minValue, maxValue);
   const value2 = getRandIntValue(minValue, maxValue);
   const operation = getRandomChoice(operations);
@@ -42,4 +43,11 @@ export const generateRound = () => {
   const rightAnswer = String(calculate(value1, value2, operation));
 
   return [question, rightAnswer];
+};
+
+/**
+ * Run game with engine
+ */
+export default () => {
+  buildGame({ description, generateRound });
 };
