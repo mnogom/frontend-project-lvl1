@@ -1,0 +1,10 @@
+{
+  "templateQuestion": "Question: {gameQuestion}",
+  "templateOnRightAnswer": "Correct!",
+  "templateOnWrongAnswer": "{userAnswer} is wrong answer ;(. Correct answer was {rightAnswer}. Let's try again, {username}!",
+  "templateOnWin": "Congratulations, {username}!",
+  "templateWelcome": "Welcome to the Brain Games!",
+  "templateGreeting": "Hello, {username}!",
+  "templateGetName": "May I have your name? ",
+  "templateGetAnswer": "Your answer: "
+}

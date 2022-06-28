@@ -1,16 +1,9 @@
 import readlineSync from 'readline-sync';
+import fs from 'fs';
 
 const countsOfRoundsToWin = 3;
-
-const templateQuestion = 'Question: {gameQuestion}';
-const templateOnRightAnswer = 'Correct!';
-const templateOnWrongAnswer = '\'{userAnswer}\' is wrong answer ;(. Correct answer was \'{rightAnswer}\'. Let\'s try again, {username}!';
-const templateOnWin = 'Congratulations, {username}!';
-
-const templateWelcome = 'Welcome to the Brain Games!';
-const templateGreeting = 'Hello, {username}!';
-const templateGetName = 'May I have your name? ';
-const templateGetAnswer = 'Your answer: ';
+const rawData = fs.readFileSync('./src/text_templates.json');
+const texts = JSON.parse(rawData);
 
 /**
  * Format template with data
@@ -18,7 +11,7 @@ const templateGetAnswer = 'Your answer: ';
  * @param {Object} data
  * @returns {String}
  */
-export const formatString = (template, data) => {
+const formatString = (template, data) => {
   let result = template;
   // eslint-disable-next-line
   for (const [key, value] of Object.entries(data)) {
@@ -40,9 +33,9 @@ export const formatString = (template, data) => {
  */
 export default (game) => {
   // -- Greeting user
-  console.log(templateWelcome);
-  const username = readlineSync.question(templateGetName);
-  console.log(formatString(templateGreeting, { username }));
+  console.log(texts.templateWelcome);
+  const username = readlineSync.question(texts.templateGetName);
+  console.log(formatString(texts.templateGreeting, { username }));
 
   // -- Show to user Description
   console.log(game.description);
@@ -50,16 +43,16 @@ export default (game) => {
   // -- Main game mechanic
   for (let i = 0; i < countsOfRoundsToWin; i += 1) {
     const [gameQuestion, rightAnswer] = game.generateRound();
-    console.log(formatString(templateQuestion, { gameQuestion }));
-    const userAnswer = readlineSync.question(templateGetAnswer);
+    console.log(formatString(texts.templateQuestion, { gameQuestion }));
+    const userAnswer = readlineSync.question(texts.templateGetAnswer);
 
     if (userAnswer !== rightAnswer) {
-      console.log(formatString(templateOnWrongAnswer, { username, userAnswer, rightAnswer }));
+      console.log(formatString(texts.templateOnWrongAnswer, { username, userAnswer, rightAnswer }));
       return;
     }
 
-    console.log(templateOnRightAnswer);
+    console.log(texts.templateOnRightAnswer);
   }
 
-  console.log(formatString(templateOnWin, { username }));
+  console.log(formatString(texts.templateOnWin, { username }));
 };
