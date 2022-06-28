@@ -23,7 +23,6 @@ const generateRound = () => {
   const value = getRandIntValue(minValue, maxValue);
   const question = String(value);
   const rightAnswer = isEven(value) ? 'yes' : 'no';
-
   return [question, rightAnswer];
 };
 

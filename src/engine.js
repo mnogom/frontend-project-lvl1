@@ -45,14 +45,11 @@ export default (game) => {
     const [gameQuestion, rightAnswer] = game.generateRound();
     console.log(formatString(texts.templateQuestion, { gameQuestion }));
     const userAnswer = readlineSync.question(texts.templateGetAnswer);
-
     if (userAnswer !== rightAnswer) {
       console.log(formatString(texts.templateOnWrongAnswer, { username, userAnswer, rightAnswer }));
       return;
     }
-
     console.log(texts.templateOnRightAnswer);
   }
-
   console.log(formatString(texts.templateOnWin, { username }));
 };

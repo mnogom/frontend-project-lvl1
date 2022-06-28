@@ -32,10 +32,8 @@ const getGCD = (value1, value2) => {
 const generateRound = () => {
   const value1 = getRandIntValue(minValue, maxValue);
   const value2 = getRandIntValue(minValue, maxValue);
-
   const question = `${value1} ${value2}`;
   const rightAnswer = String(getGCD(value1, value2));
-
   return [question, rightAnswer];
 };
 

@@ -33,10 +33,8 @@ const isPrime = (value) => {
  */
 const generateRound = () => {
   const value = getRandIntValue(minValue, maxValue);
-
   const question = String(value);
   const rightAnswer = isPrime(value) ? 'yes' : 'no';
-
   return [question, rightAnswer];
 };
 

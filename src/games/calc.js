@@ -38,10 +38,8 @@ const generateRound = () => {
   const value1 = getRandIntValue(minValue, maxValue);
   const value2 = getRandIntValue(minValue, maxValue);
   const operation = getRandomChoice(operations);
-
   const question = `${value1} ${operation} ${value2}`;
   const rightAnswer = String(calculate(value1, value2, operation));
-
   return [question, rightAnswer];
 };
 
