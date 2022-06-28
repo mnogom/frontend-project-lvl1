@@ -19,9 +19,8 @@ const lengthMax = 10;
  * @return {number[]}
  */
 const generateProgression = (start, step, length) => {
-  let sequence = getStack(0, length - 1);
-  sequence = sequence.map((index) => start + index * step);
-  return sequence;
+  const sequence = getStack(0, length - 1);
+  return sequence.map((index) => start + index * step);
 };
 
 /**

@@ -15,7 +15,7 @@ const operations = '-+*';
  * @param {string} operation
  * @returns {number}
  */
-const calculateResult = (value1, value2, operation) => {
+const calculate = (value1, value2, operation) => {
   switch (operation) {
     case '+':
       return value1 + value2;
@@ -24,7 +24,8 @@ const calculateResult = (value1, value2, operation) => {
     case '*':
       return value1 * value2;
     default:
-      return undefined;
+      // eslint-disable-next-line
+      return;
   }
 };
 
@@ -38,7 +39,7 @@ export const generateRound = () => {
   const operation = getRandomChoice(operations);
 
   const question = `${value1} ${operation} ${value2}`;
-  const rightAnswer = String(calculateResult(value1, value2, operation));
+  const rightAnswer = String(calculate(value1, value2, operation));
 
   return [question, rightAnswer];
 };
