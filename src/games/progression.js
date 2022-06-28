@@ -1,4 +1,4 @@
-import { getRandIntValue, getStack, getRandomChoice } from '../utils.js';
+import { getRandIntValue, getRandomChoice } from '../utils.js';
 import buildGame from '../engine.js';
 
 // -- Description
@@ -19,10 +19,10 @@ const lengthMax = 10;
  * @param {number} length
  * @return {number[]}
  */
-const generateProgression = (start, step, length) => {
-  const sequence = getStack(0, length - 1);
-  return sequence.map((index) => start + index * step);
-};
+// const generateProgression = (start, step, length) => {
+//   const sequence = getStack(0, length - 1);
+//   return sequence.map((index) => start + index * step);
+// };
 
 /**
  * Generate question and right answer.
@@ -32,14 +32,12 @@ const generateRound = () => {
   const start = getRandIntValue(firstMin, firstMax);
   const step = getRandIntValue(stepMin, stepMax);
   const length = getRandIntValue(lengthMin, lengthMax);
+  const progression = Array(length).fill().map((_, index) => start + index * step);
 
-  const progression = generateProgression(start, step, length);
   let rightAnswer = getRandomChoice(progression);
-
   progression[progression.indexOf(rightAnswer)] = '..';
   const question = progression.join(' ');
   rightAnswer = String(rightAnswer);
-
   return [question, rightAnswer];
 };
 

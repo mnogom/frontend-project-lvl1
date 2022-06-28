@@ -1,4 +1,4 @@
-import { getRandIntValue, getStack } from '../utils.js';
+import { getRandIntValue } from '../utils.js';
 import buildGame from '../engine.js';
 
 // -- Description
@@ -19,18 +19,11 @@ const isPrime = (value) => {
   if (value === 0 || value === 1) {
     return false;
   }
-
-  let allValues = getStack(2, value).reverse();
-
-  while (allValues.length !== 1) {
-    const simpleValue = allValues.pop();
-    allValues = allValues.filter((currentValue) => currentValue % simpleValue !== 0);
-
-    if (!(allValues.includes(value))) {
+  for (let divider = 2; divider <= Math.sqrt(value); divider += 1) {
+    if (value % divider === 0) {
       return false;
     }
   }
-
   return true;
 };
 
