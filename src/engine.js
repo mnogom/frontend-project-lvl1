@@ -1,8 +1,17 @@
 import readlineSync from 'readline-sync';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const countsOfRoundsToWin = 3;
-const rawData = fs.readFileSync('./src/text_templates.json');
+const rawData = fs.readFileSync(
+  fileURLToPath(
+    path.join(
+      path.dirname(import.meta.url),
+      './text_templates.json',
+    ),
+  ),
+);
 const texts = JSON.parse(rawData);
 
 /**

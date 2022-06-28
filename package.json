@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/code",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "[![Actions Status](https://github.com/mnogom/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/mnogom/frontend-project-lvl1/actions)",
   "main": "index.js",
   "scripts": {
@@ -32,5 +32,8 @@
     "brain-gcd": "bin/brain-gcd.js",
     "brain-prime": "bin/brain-prime.js",
     "brain-progression": "bin/brain-progression.js"
-  }
+  },
+  "files": [
+    "src/text_templates.json"
+  ]
 }
