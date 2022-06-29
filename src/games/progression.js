@@ -34,11 +34,10 @@ const generateRound = () => {
   const length = getRandIntValue(lengthMin, lengthMax);
   const progression = Array(length).fill().map((_, index) => start + index * step);
 
-  let rightAnswer = getRandomChoice(progression);
+  const rightAnswer = getRandomChoice(progression);
   progression[progression.indexOf(rightAnswer)] = '..';
   const question = progression.join(' ');
-  rightAnswer = String(rightAnswer);
-  return [question, rightAnswer];
+  return [question, String(rightAnswer)];
 };
 
 /**

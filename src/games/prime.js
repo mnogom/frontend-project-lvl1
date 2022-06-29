@@ -10,8 +10,6 @@ const maxValue = 100;
 
 /**
  * Check if number is prime.
- It uses Sieve of Eratosthenes conception.
- More: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
  * @param {number} value
  * @return {boolean}
  */
