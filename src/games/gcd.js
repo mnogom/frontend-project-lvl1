@@ -17,13 +17,8 @@ const maxValue = 100;
  * @param {number} value2
  * @return {number}
  */
-const getGCD = (value1, value2) => {
-  const reminder = value1 % value2;
-  if (reminder === 0) {
-    return value2;
-  }
-  return getGCD(value2, reminder);
-};
+const getGCD = (value1, value2) => (
+  value1 % value2 === 0 ? value2 : getGCD(value2, value1 % value2));
 
 /**
  * Generate question and right answer.
